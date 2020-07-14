@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const { clear } = require('console');
 
 //create connection
 const con = mysql.createConnection({
@@ -11,22 +10,19 @@ const con = mysql.createConnection({
 
 let x = 'hello';
 //connect to MySQL
-con.connect(function(err){
-    if (err){
-        console.log(`error:${err}`);
-    }
+con.connect( (err) => {
+    if (err) throw `${err}`;
     console.log(x);
-    let sql = "INSERT INTO INFO_CUSTOMERS (Name , Email) VALUES ?";
-    let values = [
-        ['aman','aman@gmail.com'],
-        ['amaan','amaan@gmail.com'],
-];
-    con.query(sql , [values] , (err , result) => {
-        if(err){
-            console.log(`${err}`);
-        }else{
-            console.log('inserted records' + result.affectedRows);
-        }
-    });
 
+    let sql = "INSERT INTO INFO_CUSTOMERS (Name , Email) VALUES ?"; //here in place of '?' values are taken from array values
+     let values = [
+                     ['aman','aman@gmail.com'],
+                     ['amaan','amaan@gmail.com'],
+                  ];
+
+    con.query(sql , [values] , (err , result ) => {
+             if(err) throw `${err}`;
+            console.log('inserted records ' + result.affectedRows);
+        
+    });
 });
