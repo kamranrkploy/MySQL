@@ -13,6 +13,7 @@ let x = 'hello';
 con.connect( (err) => {
     if (err) throw `${err}`;
         console.log(x);
+        
     let sql = "INSERT INTO INFO_CUSTOMERS (Name , Email) VALUES ('kamran' , 'kamran16alam@gmail.com')";
         con.query( sql , ( err , result ) => {
             if(err) throw `${err}`;
