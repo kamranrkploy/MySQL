@@ -18,7 +18,7 @@ con.connect( (err) => {
     //try writing your name from database as lowercase and uppercase
     // let sql2 = "SELECT * FROM INFO_CUSTOMERS WHERE Name = 'a_valid_name_from_your_DB'"; //mysql will identify even if you dont keep in mind about what is lowercase or uppercase but it is not the same with every database
    
-    let sql = "SELECT * FROM INFO_CUSTOMERS WHERE name LIKE '%'";//k% means every name starting with k like kane , kevin etc.
+    let sql = "SELECT * FROM INFO_CUSTOMERS WHERE name LIKE '%k'";//k% means every name starting with k like kane , kevin etc.
       con.query(sql , (err , result , fields) => {
              if(err) throw `${err}`;
 
