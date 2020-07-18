@@ -1,6 +1,3 @@
-//you can skip this file as i have done this stuff just for fun
-//if you like to go through this file , you are most welcome
-
 const mysql = require('mysql');
 
 //create connection
